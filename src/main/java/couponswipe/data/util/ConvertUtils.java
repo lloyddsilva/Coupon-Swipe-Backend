@@ -10,19 +10,22 @@ import couponswipe.dto.UserDTO;
 public class ConvertUtils {
     public static final UserDTO convert(UserPO po) {
         if (po == null) {
-            return null;
+            UserDTO dto = new UserDTO();
+           dto.setExists(false);
+            return dto;
         }
 
         UserDTO dto = new UserDTO();
         dto.setEmail(po.getEmail());
         dto.setFirstName(po.getFirstName());
         dto.setLastName(po.getLastName());
-        
         dto.setPhoneNumber(po.getPhoneNumber());
         
         dto.setPassword(po.getPassword());
         dto.setPrefDistance(po.getPrefDistance());
         dto.setPrefCategories(po.getPrefCategories());
+        dto.setExists(true);
+
         return dto;
     }
 

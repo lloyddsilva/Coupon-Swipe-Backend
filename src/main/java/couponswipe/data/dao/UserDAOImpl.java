@@ -52,10 +52,7 @@ public class UserDAOImpl extends BaseDAOImpl implements IUserDAO {
             stmt.setString(1, userPO.getFirstName());
             stmt.setString(2, userPO.getLastName());
             stmt.setString(3, userPO.getPhoneNumber());
-            stmt.setString(4, userPO.getPassword());
-            stmt.setInt(5, userPO.getPrefDistance());
-            stmt.setString(6, userPO.getPrefCategories());
-            stmt.setString(7,  userPO.getEmail());
+            stmt.setString(4, userPO.getEmail());
 
             int rowCount = stmt.executeUpdate();
            

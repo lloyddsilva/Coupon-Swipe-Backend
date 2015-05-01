@@ -8,7 +8,7 @@ public class SQL {
 	
 	public static final String INSERT_USER = "insert into users values (?, ?, ?, ?, ?, ?, ?)";
 	
-	public static final String UPDATE_USER = "update users set first_name=?, last_name=?, phone_number=?, password=?, pref_dist=?, pref_cat=? where email =?";
+	public static final String UPDATE_USER = "update users set first_name=?, last_name=?, phone_number=? where email =?";
 
 	public static final String FIND_DEAL_BY_ID = "select * from deals where UPPER(dealid) = UPPER(?)";
 

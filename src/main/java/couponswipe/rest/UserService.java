@@ -52,9 +52,9 @@ public class UserService extends BaseService {
 
     @POST
     @Consumes({ MediaType.APPLICATION_JSON })
-    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+    @Produces({ MediaType.APPLICATION_JSON })
     @Path("/signup")
-    public Response addUser(UserDTO user) {
+    public Response addUser(UserPO user) {
         System.out.println(user.getEmail());
         UserDTO resp = new UserDTO();
         try {
@@ -65,8 +65,8 @@ public class UserService extends BaseService {
             if (existingUser != null) {
                 throw new ValidationException("User name already taken");
             }
-
-            UserPO po = ConvertUtils.convert(user);
+            UserPO po = user;
+          //  UserPO po = ConvertUtils.convert(user);
             System.out.println(po.getEmail());
             dao.save(po);
             resp = ConvertUtils.convert(po);
