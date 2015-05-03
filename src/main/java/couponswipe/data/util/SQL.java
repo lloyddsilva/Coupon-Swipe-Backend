@@ -20,10 +20,12 @@ public class SQL {
 
     public static final String FIND_HISTORY_BY_ID = "select * from deal_history where UPPER(email)= UPPER(?) and UPPER(dealid)= UPPER(?)";
 
-    public static final String DELETE_HISTORY_BY_ID = "delete from deal_history where UPPER(email)= UPPER(?) and UPPER(dealid)= UPPER(?)";
+    public static final String DELETE_HISTORY_BY_ID = "update deal_history set action='deleted' where UPPER(email)= UPPER(?) and UPPER(dealid)= UPPER(?)";
 
     public static final String INSERT_DEAL_HISTORY = "insert into deal_history values (?,?,?,?,?)";
 
     public static final String UPDATE_DEAL_HISTORY = "update deal_history set action=?, created_at=?, updated_at=? where email=? and dealid=?";
+
+    public static final String FIND_HISTORY_BY_EMAIL = "select a.dealid, a.dealtitle, a.amount, a.buy_deal_url, a.mid_url, a.large_url from deals a, deal_history b where UPPER(b.email)= UPPER(?) and a.dealid = b.dealid and b.action='shortlisted'";
     
 }

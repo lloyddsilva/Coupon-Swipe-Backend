@@ -9,6 +9,7 @@ import couponswipe.data.dao.DAOFactory;
 import couponswipe.data.po.DealHistoryPO;
 import couponswipe.data.po.DealPO;
 import couponswipe.data.po.UserPO;
+import couponswipe.dto.DealHistoryListDTO;
 
 
 public class BaseService {
@@ -65,5 +66,9 @@ public class BaseService {
         DAOFactory.getInstance().getDealHistoryDAO().deleteById(dealId, email);
         
     }
+	
+	protected DealHistoryListDTO loadExistingDealHistory(String email){
+	    return DAOFactory.getInstance().getDealHistoryDAO().findHistoryByMail(email);
+	}
 	
 }

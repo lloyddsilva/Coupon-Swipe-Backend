@@ -42,4 +42,6 @@ public class DAOFactory {
         return new DealHistoryDAOImpl();
     }
 
+    
+
 }

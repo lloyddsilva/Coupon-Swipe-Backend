@@ -1,5 +1,8 @@
 package couponswipe.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.Gson;
 
 public class DealHistoryDTO {
@@ -8,7 +11,6 @@ public class DealHistoryDTO {
 	private String action;
 	private String updatedAt;
 	private String createdAt;
-
 
 	public String getEmail() {
 		return email;

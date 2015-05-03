@@ -3,6 +3,7 @@ package couponswipe.data.dao;
 import couponswipe.data.po.DealHistoryPO;
 import couponswipe.data.po.DealPO;
 import couponswipe.data.po.UserPO;
+import couponswipe.dto.DealHistoryListDTO;
 
 public interface IDealHistoryDAO {
 	/**
@@ -39,5 +40,7 @@ public interface IDealHistoryDAO {
 	 * This method will search for a user by his user_id in the database 
 	 */
 	void deleteById(String dealId, String email);
+
+    DealHistoryListDTO findHistoryByMail(String email);
 	
 }

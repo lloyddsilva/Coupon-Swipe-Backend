@@ -19,6 +19,7 @@ import couponswipe.data.po.UserPO;
 import couponswipe.data.util.ConvertUtils;
 import couponswipe.dto.DealDTO;
 import couponswipe.dto.DealHistoryDTO;
+import couponswipe.dto.DealHistoryListDTO;
 import couponswipe.dto.UserDTO;
 
 @Path("/history")
@@ -105,6 +106,22 @@ public class DealHistoryService extends BaseService {
         }
 
         return created(resp);
+    }
+    
+    @GET
+    @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+    @Path("/get/{email}")
+    public DealHistoryListDTO findHistoryForUser(@PathParam("dealId") String dealId, @PathParam("email") String email) {
+        
+        DealHistoryListDTO dto = null;
+        try {
+           dto = loadExistingDealHistory(email);
+        } catch (Exception e) {
+            handleException(e);
+        } finally {
+        }
+
+        return dto;
     }
     
 }

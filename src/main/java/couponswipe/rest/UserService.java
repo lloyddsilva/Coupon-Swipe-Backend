@@ -55,7 +55,6 @@ public class UserService extends BaseService {
     @Produces({ MediaType.APPLICATION_JSON })
     @Path("/signup")
     public Response addUser(UserPO user) {
-        System.out.println(user.getEmail());
         UserDTO resp = new UserDTO();
         try {
             IUserDAO dao = DAOFactory.getInstance().getUserDAO();
@@ -66,8 +65,6 @@ public class UserService extends BaseService {
                 throw new ValidationException("User name already taken");
             }
             UserPO po = user;
-          //  UserPO po = ConvertUtils.convert(user);
-            System.out.println(po.getEmail());
             dao.save(po);
             resp = ConvertUtils.convert(po);
         } catch (Exception e) {
@@ -83,7 +80,6 @@ public class UserService extends BaseService {
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     @Path("/update")
     public Response updateUser(UserDTO user) {
-        System.out.println(user.getEmail());
         UserDTO resp = new UserDTO();
         try {
             IUserDAO dao = DAOFactory.getInstance().getUserDAO();
@@ -105,10 +101,5 @@ public class UserService extends BaseService {
         return created(resp);
     }
 
-    @GET
-    @Produces(MediaType.TEXT_XML)
-    public String sayXMLHello() {
-        return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
-    }
-
+    
 }

@@ -25,7 +25,6 @@ public class ConnectionPoolImpl implements IConnectionPool{
 	        String dbClass = "com.mysql.jdbc.Driver";
 	        String username = "root";
 	        String password = "password";
-	        System.out.println(1);
 	        try {
 
 	            Class.forName(dbClass);
